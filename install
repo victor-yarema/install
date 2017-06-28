@@ -209,7 +209,7 @@ Dir.chdir "/usr"
 
 ####################################################################### script
 abort "MacOS too old, see: https://github.com/mistydemeo/tigerbrew" if mac? && macos_version < "10.6"
-abort "Don't run this as root!" if Process.uid.zero?
+#abort "Don't run this as root!" if Process.uid.zero?
 abort <<-EOABORT unless !mac? || `dsmemberutil checkmembership -U "#{ENV["USER"]}" -G admin`.include?("user is a member")
 This script requires the user #{ENV["USER"]} to be an Administrator.
 EOABORT
